@@ -18,20 +18,20 @@ class SparkLine extends React.PureComponent {
         valueType='Numeric'
         fill={color}
         border={{ color: currentColor, width: 2 }}
+        xName='x'
+        yName='yval'
         tooltipSettings={{
           visible: true,
-          format: "${x} : data ${yval}",
+          format: `${x} : data ${yval}`,
           trackLineSettings: {
             visible: true,
           },
         }}
         markerSettings={{ visible: ["All"], size: 2.5, fill: currentColor }}
         dataSource={data}
-        xName='x'
-        yName='yval'
         type={type}
       >
-        <Inject services={<SparklineTooltip />} />
+        <Inject services={[SparklineTooltip]} />
       </SparklineComponent>
     );
   }
